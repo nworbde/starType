@@ -1,0 +1,112 @@
+% units.tex
+% Edward F Brown, Michigan State University
+% 
+% typesetting of dimensional values
+% Features: proper spacing between value and unit; unit is set in correct type
+
+% powers
+\newcommand*{\ee}[1]{\ensuremath{\times 10^{#1}}}		% 3.0\ee{4} => 3.0\times 10^{4}
+\newcommand*{\sci}[2]{\ensuremath{#1\ee{#2}}}			% \sci{3.0}{4} => 3.0\times 10^{4}
+\newcommand{\power}[2]{\ensuremath{{#1}^{#2}}}		    % \power{2}{3} => 2^{3}
+
+% spacing between value and unit; value is a thin space
+\newcommand*{\unitskip}{\,}                             % change this to \; if you want a thicker space
+\newcommand*{\usk}{\unitskip}
+\newcommand*{\val}[2]{\ensuremath{#1\unitskip#2}}
+
+% sometimes you want to input a range of numbers
+% example: \rng{2}{3} puts 2 to 3; \rng[--]{2}{3} puts 2--3, where the two dashes are correctly typeset 
+% as an en-dash rather than as a minus sign
+\newcommand*{\rng}[3][~to~]{\ensuremath{#2\textrm{#1}#3}}
+% this puts in a range with a unit
+% example: \valrng[--]{2}{3}{\times \val{10^{3}}{\kilo\gram}}
+\newcommand*{\valrng}[4][~to~]{\ensuremath{\left(#2\textrm{#1}#3\right)#4}}
+
+
+% units should be in upright (roman) font
+\newcommand*{\unitstyle}[1]{\mathrm{#1}}
+
+% pre-defined macros for common units
+% prefixes
+\newcommand*{\yocto}{\unitstyle{y}}		% 10^{-24}
+\newcommand*{\zepto}{\unitstyle{z}}		% 10^{-21}
+\newcommand*{\atto}{\unitstyle{a}}		% 10^{-18}
+\newcommand*{\femto}{\unitstyle{f}}		% 10^{-15}
+\newcommand*{\pico}{\unitstyle{p}}		% 10^{-12}
+\newcommand*{\nano}{\unitstyle{n}}		% 10^{-9}
+\newcommand*{\micro}{\unitstyle{\mu}}	% 10^{-6}
+\newcommand*{\milli}{\unitstyle{m}}		% 10^{-3}
+\newcommand*{\centi}{\unitstyle{c}}		% 10^{-2}
+\newcommand*{\deci}{\unitstyle{d}}		% 10^{-1}
+%
+\newcommand*{\deka}{\unitstyle{da}}		% 10^{1}
+\newcommand*{\hecto}{\unitstyle{h}}		% 10^{2}
+\newcommand*{\kilo}{\unitstyle{k}}		% 10^{3}
+\newcommand*{\Mega}{\unitstyle{M}}		% 10^{6}
+\newcommand*{\Giga}{\unitstyle{G}}		% 10^{9}
+\newcommand*{\Tera}{\unitstyle{T}}		% 10^{12}
+\newcommand*{\Peta}{\unitstyle{P}}		% 10^{15}
+\newcommand*{\Exa}{\unitstyle{E}}		% 10^{18}
+\newcommand*{\Zetta}{\unitstyle{Z}}		% 10^{21}
+\newcommand*{\Yotta}{\unitstyle{Y}}		% 10^{24}
+
+% base units, mks
+\newcommand*{\meter}{\unitstyle{m}}
+\newcommand*{\kilogram}{\kilo\gram}
+\newcommand*{\second}{\unitstyle{s}}
+
+\newcommand*{\Kelvin}{\unitstyle{K}}
+\newcommand*{\K}{\Kelvin}  %degrees Kelvin
+
+% base units, cgs
+\newcommand*{\cm}{\centi\meter}
+\newcommand*{\gram}{\unitstyle{g}}
+
+% derived units
+\newcommand*{\grampercc}{\gram\unitskip\power{\cm}{-3}} %mass density
+\newcommand*{\grampersquarecm}{\gram\unitskip\power{\cm}{-2}} %column depth
+\newcommand*{\GramPerCc}{\grampercc}
+\newcommand*{\GramPerSc}{\grampersquarecm}
+\newcommand*{\columnunit}{\grampersquarecm}
+\newcommand*{\dyne}{\unitstyle{dyn}}            %dyne
+\newcommand*{\erg}{\unitstyle{erg}}             %ergs
+\newcommand*{\ergs}{\erg}
+\newcommand*{\gauss}{\unitstyle{G}}             %gauss
+\newcommand*{\ergspersecond}{\erg\unitskip\power{\second}{-1}}
+\newcommand*{\ergspergram}{\erg\unitskip\power{\gram}{-1}}
+\newcommand*{\cgsflux}{\erg\unitskip\power{\cm}{-2}\unitskip\power{\second}{-1}}
+
+% Nuclear and atomic units
+\newcommand*{\amu}{\unitstyle{u}}               %atomic mass unit
+\newcommand*{\angstrom}{\mbox{\AA}}             %Angstrom
+\newcommand*{\fermi}{\femto\meter}              %fermi
+\newcommand*{\eV}{\unitstyle{eV}}               %eV
+\newcommand*{\keV}{\kilo\eV}                    %keV
+\newcommand*{\MeV}{\Mega\eV}                    %MeV
+\newcommand*{\GeV}{\Giga\eV}                    %GeV
+% Beam units
+\newcommand*{\MeVA}{\MeV/A}                     % MeV per nucleon
+\newcommand*{\GeVA}{\GeV/A}                     % GeV per nucleon
+
+% misc. units
+\newcommand*{\minute}{\unitstyle{min}}          %minute
+\newcommand*{\hour}{\unitstyle{hr}}             %hour
+\newcommand*{\yr}{\unitstyle{yr}}               %year
+\newcommand*{\km}{\kilo\meter}                  %kilometers
+\newcommand*{\Hz}{\unitstyle{Hz}}               %Hertz
+\newcommand*{\ksec}{\kilo\second}               %kilosecond
+\newcommand*{\mol}{\unitstyle{mol}}             % mole
+\newcommand*{\barn}{\ensuremath{\mathrm{b}}}    %barn
+
+% solar and astronomical units
+\newcommand*{\Msun}{\ensuremath{M_\odot}}
+\newcommand*{\Lsun}{\ensuremath{L_\odot}}
+\newcommand*{\Rsun}{\ensuremath{R_\odot}}
+\newcommand*{\Myr}{\Mega\yr}
+\newcommand*{\Gyr}{\Giga\yr}
+\newcommand*{\AU}{\unitstyle{AU}}               % astronomical unit
+\newcommand*{\parsec}{\unitstyle{pc}}           % parsec
+\newcommand*{\kpc}{\kilo\parsec}                % kiloparsec
+\newcommand*{\Jansky}{\unitstyle{Jy}}           % Jansky
+\newcommand*{\mJy}{\unitstyle{\mu Jy}}          % micro Jansky
+\newcommand*{\Msunperyr}{\Msun\unitskip\power{\yr}{-1}}	% solar masses per year

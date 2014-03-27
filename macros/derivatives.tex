@@ -1,0 +1,17 @@
+% derivatives.tex
+% Edward F Brown, Michigan State University
+% 
+% typesetting of common derivatives
+
+\newcommand{\dif}{\ensuremath{\mathrm{d}}}  % differential operator, roman typeface
+\newcommand*{\Dif}{\ensuremath{\mathrm{D}}} % lagrangian differential operator
+\newcommand*{\jac}[4]{\ensuremath{\frac{\partial(#1,#2)}{\partial(#3,#4)}}} %jacobian
+\newcommand*{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}} %thermodynamic derivative
+
+%derivatives
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial t}}    % partial time derivative 
+\newcommand{\DDt}[1]{\frac{\dif #1}{\dif t}}            % total time derivative
+\newcommand{\ddx}[1]{\frac{\partial #1}{\partial x}}    % partial derivative wrt x 
+\newcommand{\ddy}[1]{\frac{\partial #1}{\partial y}}    % partial derivative wrt y 
+\newcommand{\DDy}[1]{\frac{\dif #1}{\dif y}}            % total derivative wrt y
+\newcommand{\ddz}[1]{\frac{\partial #1}{\partial z}}    % partial derivative wrt z 
