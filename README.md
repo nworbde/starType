@@ -8,3 +8,6 @@ Useful LaTeX macros for commonly used symbols in stellar astrophysics.
 *   `symbols.tex`: lots of symbols for commonly used quantities in astrophysics and stellar physics
 *   `units.tex`: macros for typesetting units
 *   `vectors.tex`: macros for typesetting vector expressions
+
+## scripts
+*   `extract_symbols.py`: a lightweight python script that constructs a latex table of the macros in a given file. The output is sent to stdout as a standalone document that makes use of the fancyvrb and longtable packages.
