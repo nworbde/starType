@@ -1,0 +1,259 @@
+\documentclass[11pt]{article}
+\usepackage[
+        pdfencoding=auto,%
+        pdftitle={starType},%
+        pdfauthor={Edward F. Brown},%
+        pdfstartview=FitV,%
+        colorlinks=true,%
+        linkcolor=blue,%
+        citecolor=black, %
+        urlcolor=blue]{hyperref}
+\usepackage{txfonts}
+\usepackage{longtable}
+\usepackage{fancyvrb}
+
+\input{macros/units}
+\input{macros/nuclides}
+\input{macros/code}
+\input{macros/symbols}
+\input{macros/vectors}
+\input{macros/derivatives}
+\newcommand*{\starType}{\code{starType}}
+
+\DefineShortVerb{\|}
+\fvset{numbers=right}
+
+\begin{document}
+    \thispagestyle{empty}
+    \centerline{\rule[0.3ex]{\hsize}{2pt}}
+    {\sffamily \noindent
+    \LARGE starType\vspace{0.5ex}\\
+    \Large Useful \LaTeX\ macros for stellar astrophysics}\\
+    \centerline{\rule[0.6ex]{\hsize}{2pt}}
+    \vspace{1.5em}
+
+    \rmfamily
+    
+A common chore is the typesetting of units and various symbols. To help with this, I wrote a set of macros, \href{https://github.com/nworbde/starType}{\starType}.  You are welcome to use them or modify them to suit your needs.  
+
+\section{Code Names}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+command & produces\\
+\hline\hline
+|\flash| & \flash \\
+|\kepler| & \kepler \\
+|\nonsmoker| & \nonsmoker \\
+|\mesa,\MESA| & \mesa \\
+|\STERN| & \STERN \\
+|\ADIPLS| & \ADIPLS \\
+|\DSEP| & \DSEP \\
+|\enzo| & \enzo \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Derivatives}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{ll}
+        \hline
+        command & produces\\
+        \hline\hline
+        |\dif| & \dif \\
+        |\Dif| & \Dif \\
+        |\jac{a}{b}{c}{d}| & $\textstyle\jac{a}{b}{c}{d}$\\
+        |\tderiv{a}{b}{c}| & $\textstyle\tderiv{a}{b}{c}$\\
+        |\ddt{f}| & $\textstyle\ddt{a}$\\
+        |\DDt{f}| & $\textstyle\DDt{f}$\\
+        |\ddx{f}| & $\textstyle\ddx{f}$\\
+        |\ddy{f}| & $\textstyle\ddy{f}$\\
+        |\DDy{f}| & $\textstyle\DDy{f}$\\
+        |\ddz{f}|  & $\textstyle\ddz{f}$\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Vectors}
+
+\begin{center}
+    \begin{tabular}{ll}
+        \hline
+        command & produces\\
+        \hline\hline
+        |\bvec{u}| & $\bvec{u}$\\
+        |\grad f| & $\grad f$\\
+        |\divr\bvec{u}| & $\divr\bvec{u}$\\
+        |\curl\bvec{u}| & $\curl\bvec{u}$\\
+        |\lap\phi| & $\lap\phi$\\
+        |\btens{T}| & $\btens{T}$\\
+        |\bvec{a}\vcross\bvec{b}| & $\bvec{a}\vcross\bvec{b}$\\
+        |\bvec{a}\vdot\bvec{b}| & $\bvec{a}\vdot\bvec{b}$\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Nuclides}\label{s.nuclides.tex}
+
+The \code{nuclides.tex} macros contain a list of all named elements.  Typeing `|\<element>|' produces the symbol of either the most common, or the longest-lived, isotope of that element.  To get a specific isotope, add the atomic number of the isotope in |[]|.  For example, |\carbon| produces \carbon, and |\carbon[13]| produces \carbon[13]; |\cadmium| produces \cadmium, whereas |\cadmium[116]| produces \cadmium[116]; and so on.
+The symbols `|\neutron|' (alias `|\nt|') and `|\proton|' (alias `|\pt|') are also defined and produce `\neutron' and `\proton', respectively.
+
+\section{Units}
+
+To get scientific notation, type `|$3\ee{5}$|' to get $3\ee{5}$; alternatively, use `|\sci{3}{5}|' to get $\sci{3}{5}$.  To typeset a value with its unit, use the |\val| macro: for example, `|$\val{3}{\meter/\second}$|' produces $\val{3}{\meter/\second}$.  More complicated expressions are possible: for example,
+\begin{center}
+|$\val{\sci{2.0}{33}}{\ergspersecond}$| produces $\val{\sci{2.0}{33}}{\ergspersecond}$.
+\end{center}
+  For ranges of numbers, |\rng{2}{3}| produces \rng{2}{3}; |\rng[--]{2}{3}| produces \rng[--]{2}{3}. To put a range with a value, |\valrng{2}{3}{\meter/\second}| produces \valrng{2}{3}{\meter/\second} and |\valrng[--]{2}{3}{\meter/\second}| produces \valrng[--]{2}{3}{\meter/\second}.  Macros for the unit symbols are listed in the following table.
+
+Note that more sophisticated packages, such as `SIunits' are available as part of a standard \LaTeX\ distribution.
+
+Metric prefixes are defined.
+\begin{center}
+    \begin{tabular}{lll}
+        \hline
+        command & produces & meaning\\
+        \hline\hline
+|\yocto| & $\yocto$ & $10^{-24}$\\
+|\zepto| & $\zepto$ & $10^{-21}$\\
+|\atto| & $\atto$ & $10^{-18}$\\
+|\femto| & $\femto$ & $10^{-15}$\\
+|\pico| & $\pico$ & $10^{-12}$\\
+|\nano| & $\nano$ & $10^{-9}$\\
+|\micro| & $\micro$ & $ 10^{-6}$\\
+|\milli| & $\milli$ & $10^{-3}$\\
+|\centi| & $\centi$ & $10^{-2}$\\
+|\deci| & $\deci$ & $10^{-1}$\\
+%
+|\deka| & $\deka$ & $10^{1}$\\
+|\hecto| & $\hecto$ & $10^{2}$\\
+|\kilo| & $\kilo$ & $10^{3}$\\
+|\Mega| & $\Mega$ & $10^{6}$\\
+|\Giga| & $\Giga$ & $10^{9}$\\
+|\Tera| & $\Tera$ & $10^{12}$\\
+|\Peta| & $\Peta$ & $10^{15}$\\
+|\Exa| & $\Exa$ & $10^{18}$\\
+|\Zetta| & $\Zetta$ & $10^{21}$\\
+|\Yotta| & $\Yotta$ & $10^{24}$\\
+        \hline
+    \end{tabular}
+\end{center}
+
+A complete listing of the units are as follows.
+
+    \begin{center}
+    \begin{longtable}{lll}
+        \hline
+        command & produces & meaning\\
+        \hline\hline
+        |\meter| & $\meter$ & base units, mks\\
+        |\kilogram| & $\kilogram$ & \\
+        |\second| & $\second$ & \\
+        |\Kelvin,\K| & $\Kelvin$ & degrees Kelvin \\
+        |\cm| & $\cm$ &  base units, cgs\\
+        |\gram| & $\gram$ & \\
+        |\grampercc,\GramPerCc| & $\grampercc$ & mass density\\
+        |\grampersquarecm,\GramPerSc,\columnunit| & $\grampersquarecm$ &  column depth\\
+        |\dyne| & $\dyne$ & dyne\\
+        |\erg,\ergs| & $\erg$ & ergs\\
+        |\gauss| & $\gauss$ & gauss\\
+        |\ergspersecond| & $\ergspersecond$ & \\
+        |\ergspergram| & $\ergspergram$ & \\
+        |\cgsflux| & $\cgsflux$ & cgs flux unit\\
+        |\amu| & $\amu$ & atomic mass unit\\
+        |\angstrom| & $\angstrom$ & Angstrom\\
+        |\fermi| & $\fermi$ & fermi, aka femtometer\\
+        |\eV| & $\eV$ & electron volt\\
+        |\keV| & $\keV$ & \\ 
+        |\MeV| & $\MeV$ & \\
+        |\GeV| & $\GeV$ & \\
+        |\MeVA| & $\MeVA$ &  MeV per nucleon\\
+        |\GeVA| & $\GeVA$ & GeV per nucleon\\
+        |\minute| & $\minute$ & minute\\
+        |\hour| & $\hour$ & hour\\
+        |\yr| & $\yr$ & year\\
+        |\km| & $\km$ & kilometers\\
+        |\Hz| & $\Hz$ & Hertz\\
+        |\ksec| & $\ksec$ & kilosecond\\
+        |\mol| & $\mol$ &  mole\\
+        |\barn| & $\barn$  & barn\\
+        |\Msun| & $\Msun$ & solar mass\\
+        |\Lsun| & $\Lsun$ & solar luminosity\\
+        |\Rsun| & $\Rsun$ & solar radius\\
+        |\Myr| & $\Myr$ & \\
+        |\Gyr| & $\Gyr$ & \\
+        |\AU| & $\AU$ &  astronomical unit\\
+        |\parsec| & $\parsec$ &  parsec\\
+        |\kpc| & $\kpc$ &  kiloparsec\\
+        |\Jansky| & $\Jansky$ &  Jansky\\
+        |\mJy| & $\mJy$ &  micro Jansky\\
+        |\Msunperyr| & $\Msunperyr$	& solar masses per year\\
+        \hline
+    \end{longtable}
+\end{center}
+
+\section{Symbols}
+
+\begin{center}
+\begin{longtable}{lll}
+    \hline
+    command & produces & meaning\\
+    \hline\hline
+|\abohr| & \abohr & Bohr radius \\
+|\alphaF| & \alphaF & Fine structure \\
+|\alphaMLT| & \alphaMLT &  mixing length parameter \\
+|\alphasc| & \alphasc &  semiconvection efficiency parameter \\
+|\alphath| & \alphath &  thermohaline efficiency parameter \\
+|\chirho| & \chirho &  $(\partial\ln P/\partial\ln\rho)_T$ \\
+|\chiT| & \chiT &  $(\partial\ln P/\partial\ln T)_{\rho}$ \\
+|\CP| & \CP &  specific heat at constant pressure \\
+|\cs| & \cs &  adiabatic sound speed \\
+|\Dov| & \Dov &  overshoot diffusion coefficient \\
+|\Dth| & \Dth &  thermohaline diffusion coefficient \\
+|\EF| & \EF & Fermi energy \\
+|\epsgrav| & \epsgrav &  gravitational heating rate \\
+|\epsnu| & \epsnu &  neutrino losses \\
+|\epsnuc| & \epsnuc &  nuclear heating rate \\
+|\Fconv| & \Fconv &  convective flux \\
+|\fov| & \fov &  convective overshoot parameter \\
+|\Frad| & \Frad &  radiative flux \\
+|\Gammaone| & \Gammaone &  $ (\partial\ln P/\partial \ln\rho)_S$ \\
+|\Gammatwo| & \Gammatwo & $\left[1-(\partial\ln T/\partial\ln P)_S\right]^{-1}$ \\
+|\Gammathree| & \Gammathree & $1+ (\partial\ln T/\partial\ln\rho)_S$\\
+|\kB| & \kB &  Boltzmann constant \\
+|\lambdaD| & \lambdaD & Debye length \\
+|\Ledd| & \Ledd &  Eddington Luminosity \\
+|\logg| & \logg &  log surface gravity \\
+|\Lrad| & \Lrad &  radiative luminosity \\
+|\Ma| & \Ma &  Mach number \\
+|\mb| & \mb &  atomic mass unit \\
+|\Mdot| & \Mdot &  mass-loss rate \\
+|\me| & \me & electron mass \\
+|\mn| & \mn & neutron mass \\
+|\mpr| & \mpr & proton mass \\
+|\NA| & \NA &  Avogadro number \\
+|\nablaad| & \nablaad &  adiabatic temperature gradient \\
+|\nablaL| & \nablaL &  Ledoux criterion \\
+|\nablarad| & \nablarad &  radiative temperature gradient \\
+|\nablaT| & \nablaT &  actual temperature gradient \\
+|\nB| & \nB &  baryon density \\
+|\Pc| & \Pc &  central pressure \\
+|\pF| & \pF & Fermi momentum \\
+|\Pgas| & \Pgas &  gas pressure \\
+|\Prad| & \Prad &  radiation pressure \\
+|\Rey| & \Rey &  Reynolds number \\
+|\rhoc| & \rhoc &  central density \\
+|\scaleheight| & \scaleheight &  pressure scale height \\
+|\sigmaSB| & \sigmaSB &  Stefan-Boltzmann constant \\
+|\Slamb| & \Slamb &  Lamb frequency \\
+|\Tc| & \Tc &  central temperature \\
+|\Teff,\teff| & \Teff &  effective temperature \\
+|\tkh| & \tkh &  thermal (Kelvin-Helmholtz) timescale \\
+\hline
+\end{longtable}
+\end{center}
+
+\end{document}
