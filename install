@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+USAGE="</path/to/texmf>"
+LONG_USAGE="Installs starType package to </path/to/texmf/tex/latex> and the 
+documentation to </path/to/texmf/doc/latex/starType/>."
+LATEX=`which pdflatex`
+LATEXOPS="--file-line-error"
+DOC='starType'
+ROOTPATH=""
+SRCDIR=""
+DOCDIR=""
+
+function check_okay {
+    if [ $? -ne 0 ]; then
+        echo
+        echo "processing failed..."
+        exit 1
+    fi
+}
+
+function rerun_if_necessary {
+    grep -i --regexp="Rerun" $DOC.log
+    if [ $? -eq 0 ]; then
+        echo "rerunning latex"
+        $LATEX $LATEXOPS $DOC
+        check_okay
+    fi
+}
+
+# process options
+case "$1" in
+    -h|--help)
+    echo "usage: $(basename "$0") $USAGE"
+    echo
+    echo "$LONG_USAGE"
+    exit 0
+esac
+
+# need error-checking
+ROOTDIR="$1"
+SRCDIR=$ROOTDIR/tex/latex
+DOCDIR=$ROOTDIR/doc/latex/starType
+
