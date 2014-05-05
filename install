@@ -11,6 +11,7 @@ DOCMAN="$DOCBASE.tex"
 ROOTPATH=""
 SRCDIR=""
 DOCDIR=""
+THISDIR=`pwd`
 
 function show_help {
 	echo "usage: $(basename "$0") $USAGE"
@@ -28,10 +29,10 @@ function check_okay {
 }
 
 function rerun_if_necessary {
-    grep -i --regexp="Rerun" $DOC.log
+    grep -i --regexp="Rerun" $DOCBASE.log
     if [ $? -eq 0 ]; then
         echo "rerunning latex"
-        $LATEX $LATEXOPS $DOC
+        $LATEX $LATEXOPS $DOCBASE
         check_okay
     fi
 }
@@ -75,3 +76,12 @@ echo "copying $DOCMAN to $DOCDIR"
 cp doc/$DOCMAN $DOCDIR
 check_okay
 
+cd $DOCDIR
+$LATEX $LATEXOPS $DOCBASE
+rerun_if_necessary
+rerun_if_necessary
+
+#cleanup
+rm -f $DOCBASE.{aux,log,out}
+
+cd $THISDIR
