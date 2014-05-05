@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% starType.sty
+%
+% Edward Brown, Michigan State University
+%
+\def\fileversion{1.0}
+\def\filedate{2014/05/06}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{starType}[\filedate v\fileversion]
+\RequirePackage{ifthen}
+
+% Define options for the class.  Each set of macros can be loaded individually;
+% the option all loads everything
+
+\newboolean{@st_code}
+\newboolean{@st_derivatives}
+\newboolean{@st_nuclides}
+\newboolean{@st_symbols}
+\newboolean{@st_units}
+\newboolean{@st_vectors}
+\newboolean{@st_all}
+
+\setboolean{@st_code}{false}
+\setboolean{@st_derivatives}{false}
+\setboolean{@st_nuclides}{false}
+\setboolean{@st_symbols}{false}
+\setboolean{@st_units}{false}
+\setboolean{@st_vectors}{false}
+\setboolean{@st_all}{false}
+
+\DeclareOption{code}{\setboolean{@st_code}{true}}
+\DeclareOption{derivatives}{\setboolean{@st_derivatives}{true}}
+\DeclareOption{nuclides}{\setboolean{@st_nuclides}{true}}
+\DeclareOption{symbols}{\setboolean{@st_symbols}{true}}
+\DeclareOption{units}{\setboolean{@st_units}{true}}
+\DeclareOption{vectors}{\setboolean{@st_vectors}{true}}
+\DeclareOption{all}{\setboolean{@st_all}{true}}
+\ProcessOptions
+
+\ifthenelse{\boolean{@st_all}}
+{
+    \setboolean{@st_code}{true}
+    \setboolean{@st_derivatives}{true}
+    \setboolean{@st_nuclides}{true}
+    \setboolean{@st_symbols}{true}
+    \setboolean{@st_units}{true}
+    \setboolean{@st_vectors}{true}
+}{}
+\ifthenelse{\boolean{@st_code}}
+{
+    \typeout{loading starType macros 'code'}
+    \input{st_code}
+}{}
+\ifthenelse{\boolean{@st_derivatives}}
+{
+    \typeout{loading starType macros 'derivatives'}
+    \input{st_derivatives}
+}{}
+\ifthenelse{\boolean{@st_nuclides}}
+{
+    \typeout{loading starType macros 'nuclides'}
+    \input{st_nuclides}
+}{}
+\ifthenelse{\boolean{@st_symbols}}
+{
+    \typeout{loading starType macros 'symbols'}
+    \input{st_symbols}
+}{}
+\ifthenelse{\boolean{@st_units}}
+{
+    \typeout{loading starType macros 'units'}
+    \input{st_units}
+}{}
+\ifthenelse{\boolean{@st_vectors}}
+{
+    \typeout{loading starType macros 'vectors'}
+    \input{st_vectors}
+}{}
