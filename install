@@ -5,10 +5,19 @@ LONG_USAGE="Installs starType package to </path/to/texmf/tex/latex> and the
 documentation to </path/to/texmf/doc/latex/starType/>."
 LATEX=`which pdflatex`
 LATEXOPS="--file-line-error"
-DOC='starType'
+DOCBASE='starType'
+DOCSTY="$DOCBASE.sty"
+DOCMAN="$DOCBASE.tex"
 ROOTPATH=""
 SRCDIR=""
 DOCDIR=""
+
+function show_help {
+	echo "usage: $(basename "$0") $USAGE"
+	echo
+	echo "$LONG_USAGE"
+	exit 0
+}
 
 function check_okay {
     if [ $? -ne 0 ]; then
@@ -27,17 +36,42 @@ function rerun_if_necessary {
     fi
 }
 
+# must have one argument: the path name to the texmf directory or a --help flag
+if [ "$#" -ne 1 ]; then
+	show_help
+fi
+
 # process options
 case "$1" in
     -h|--help)
-    echo "usage: $(basename "$0") $USAGE"
-    echo
-    echo "$LONG_USAGE"
-    exit 0
+	show_help
 esac
 
-# need error-checking
 ROOTDIR="$1"
-SRCDIR=$ROOTDIR/tex/latex
+SRCDIR=$ROOTDIR/tex/latex/starType
 DOCDIR=$ROOTDIR/doc/latex/starType
+
+if [ ! -d $SRCDIR ]; then
+	echo "making $SRCDIR"
+	mkdir -p $SRCDIR
+	check_okay
+fi
+
+echo "copying macros to $SRCDIR"
+cp macros/*.tex $SRCDIR
+check_okay
+
+echo "copying $DOCSTY to $SRCDIR"
+cp $DOCSTY $SRCDIR
+check_okay
+
+if [ ! -d $DOCDIR ]; then
+	echo "making $DOCDIR"
+	mkdir -p $DOCDIR
+	check_okay
+fi
+
+echo "copying $DOCMAN to $DOCDIR"
+cp doc/$DOCMAN $DOCDIR
+check_okay
 
