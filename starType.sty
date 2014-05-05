@@ -29,14 +29,26 @@
 \setboolean{@st_symbols}{false}
 \setboolean{@st_units}{false}
 \setboolean{@st_vectors}{false}
-\setboolean{@st_all}{false}
+\setboolean{@st_all}{true}
 
-\DeclareOption{code}{\setboolean{@st_code}{true}}
-\DeclareOption{derivatives}{\setboolean{@st_derivatives}{true}}
-\DeclareOption{nuclides}{\setboolean{@st_nuclides}{true}}
-\DeclareOption{symbols}{\setboolean{@st_symbols}{true}}
-\DeclareOption{units}{\setboolean{@st_units}{true}}
-\DeclareOption{vectors}{\setboolean{@st_vectors}{true}}
+\DeclareOption{code}{
+    \setboolean{@st_code}{true}\setboolean{@st_all}{false}
+}
+\DeclareOption{derivatives}{
+    \setboolean{@st_derivatives}{true}\setboolean{@st_all}{false}
+}
+\DeclareOption{nuclides}{
+    \setboolean{@st_nuclides}{true}\setboolean{@st_all}{false}
+}
+\DeclareOption{symbols}{
+    \setboolean{@st_symbols}{true}\setboolean{@st_all}{false}
+}
+\DeclareOption{units}{
+    \setboolean{@st_units}{true}\setboolean{@st_all}{false}
+}
+\DeclareOption{vectors}{
+    \setboolean{@st_vectors}{true}\setboolean{@st_all}{false}
+}
 \DeclareOption{all}{\setboolean{@st_all}{true}}
 \ProcessOptions
 
