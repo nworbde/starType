@@ -40,7 +40,7 @@
 \DeclareOption{all}{\setboolean{@st_all}{true}}
 \ProcessOptions
 
-\ifthen{\boolean{@st_all}}
+\ifthenelse{\boolean{@st_all}}
 {
     \setboolean{@st_code}{true}
     \setboolean{@st_derivatives}{true}
@@ -48,35 +48,34 @@
     \setboolean{@st_symbols}{true}
     \setboolean{@st_units}{true}
     \setboolean{@st_vectors}{true}
-}
-
-\ifthen{\boolean{@st_code}}
+}{}
+\ifthenelse{\boolean{@st_code}}
 {
     \typeout{loading starType macros 'code'}
     \input{macros/code}
-}
-\ifthen{\boolean{@st_derivatives}}
+}{}
+\ifthenelse{\boolean{@st_derivatives}}
 {
     \typeout{loading starType macros 'derivatives'}
     \input{macros/derivatives}
-}
-\ifthen{\boolean{@st_nuclides}}
+}{}
+\ifthenelse{\boolean{@st_nuclides}}
 {
     \typeout{loading starType macros 'nuclides'}
     \input{macros/nuclides}
-}
-\ifthen{\boolean{@st_symbols}}
+}{}
+\ifthenelse{\boolean{@st_symbols}}
 {
     \typeout{loading starType macros 'symbols'}
     \input{macros/symbols}
-}
-\ifthen{\boolean{@st_units}}
+}{}
+\ifthenelse{\boolean{@st_units}}
 {
     \typeout{loading starType macros 'units'}
     \input{macros/units}
-}
-\ifthen{\boolean{@st_vectors}}
+}{}
+\ifthenelse{\boolean{@st_vectors}}
 {
     \typeout{loading starType macros 'vectors'}
     \input{macros/vectors}
-}
+}{}
