@@ -17,11 +17,11 @@ subdirectory of `texmf` called `doc/latex/starType`.
 
 To use, load the package in the preamble of the tex document,
 
-    \use[<opts>]{starType}
+    \usepackage[<opts>]{starType}
     
 where `<opts>` is a subset of `code`, `derivatives`, `nuclides`, `symbols`,    `units`, `vectors`, or `all`.  Each of these options loads the particular set of macros.  Calling `starType` with no options is equivalent to
     
-    \use[all]{starType}
+    \usepackage[all]{starType}
     
 ### usage with mathspec
 
