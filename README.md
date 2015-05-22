@@ -1,5 +1,5 @@
 #starType
-Useful LaTeX macros for commonly used symbols in stellar astrophysics. Many of these macros were compiled during the preparation of the second MESA instrument paper(Paxton et al. 2013, ApJS 208: 4).
+Useful LaTeX macros for commonly used symbols in stellar astrophysics. Many of these macros were compiled during the preparation of the second MESA instrument paper (Paxton et al. 2013, ApJS 208: 4).
 
 ## installation and usage
 After cloning the project directory, cd into it and run the install script
