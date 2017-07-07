@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
     extract_symbols.py
     Edward Brown, Michigan State University
@@ -46,12 +45,12 @@ for sym, defin in zip(syms,defins):
 keylist = symdict.keys()
 
 # prologue
-print r'''
+print(r'''
 \documentclass{article}
 \usepackage{fancyvrb,longtable}
-'''
-print '\\input{{{0}}}'.format(texbase)
-print r'''
+''')
+print('\\input{{{0}}}'.format(texbase))
+print(r'''
 \DefineShortVerb{\|}
 \begin{document}
 \begin{center}
@@ -59,16 +58,16 @@ print r'''
 \hline
 command & produces & meaning\\
 \hline\hline
-'''
+''')
 
 # body of table
 for key in sorted(keylist,key=str.lower):
-  print '|{0}| & {0} & {1} \\\\'.format(key,symdict[key])
+  print('|{0}| & {0} & {1} \\\\'.format(key,symdict[key]))
 
 # epilogue
-print r'''
+print(r'''
 \hline
 \end{longtable}
 \end{center}
 \end{document}
-'''
+''')
