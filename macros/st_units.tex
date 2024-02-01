@@ -88,21 +88,12 @@
 \newcommand*{\MeVA}{\MeV/A}                     % MeV per nucleon
 \newcommand*{\GeVA}{\GeV/A}                     % GeV per nucleon
 
-% misc. units
-\newcommand*{\minute}{\unitstyle{m}}          % minute
-\newcommand*{\hour}{\unitstyle{h}}             % hour
-\newcommand*{\solday}{\unitstyle{d}}            % solar day (\day is already in use)
-\newcommand*{\yr}{\unitstyle{yr}}               % year
-\newcommand*{\km}{\kilo\meter}                  % kilometers
-\newcommand*{\Hz}{\unitstyle{Hz}}               % Hertz
-\newcommand*{\ksec}{\kilo\second}               % kilosecond
-\newcommand*{\mol}{\unitstyle{mol}}             % mole
-\newcommand*{\barn}{\ensuremath{\mathrm{b}}}    % barn
-
 % solar and astronomical units
 \newcommand*{\Msun}{\ensuremath{M_\odot}}       % solar mass
 \newcommand*{\Lsun}{\ensuremath{L_\odot}}       % solar luminosity
 \newcommand*{\Rsun}{\ensuremath{R_\odot}}       % solar radius
+\newcommand*{\yr}{\unitstyle{yr}}               % Calendar year, 365 d
+\newcommand*{\julyr}{\unitstyle{a}}             % Julian year = 365.25 * 86400 s
 \newcommand*{\Myr}{\Mega\yr}                    % $10^{6}\,\yr$
 \newcommand*{\Gyr}{\Giga\yr}                    % $10^{9}\,\yr$
 \newcommand*{\AU}{\unitstyle{au}}               % astronomical unit
@@ -111,3 +102,13 @@
 \newcommand*{\Jansky}{\unitstyle{Jy}}           % Jansky
 \newcommand*{\mJy}{\unitstyle{\mu Jy}}          % micro Jansky
 \newcommand*{\Msunperyr}{\Msun\unitskip\power{\yr}{-1}}	% solar masses per year
+
+% misc. units
+\newcommand*{\minute}{\unitstyle{m}}            % minute = 60 s
+\newcommand*{\hour}{\unitstyle{h}}              % hour = 60 * 60 s
+\newcommand*{\aday}{\unitstyle{d}}              % IAU definition: d = 86400 s (\day aleady in use)
+\newcommand*{\km}{\kilo\meter}                  % kilometers
+\newcommand*{\Hz}{\unitstyle{Hz}}               % Hertz
+\newcommand*{\ksec}{\kilo\second}               % kilosecond
+\newcommand*{\mol}{\unitstyle{mol}}             % mole
+\newcommand*{\barn}{\ensuremath{\mathrm{b}}}    % barn
