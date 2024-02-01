@@ -51,30 +51,30 @@
 \newcommand*{\Yotta}{\unitstyle{Y}}		% 10^{24}
 
 % base units, mks
-\newcommand*{\meter}{\unitstyle{m}}
-\newcommand*{\kilogram}{\kilo\gram}
-\newcommand*{\second}{\unitstyle{s}}
+\newcommand*{\meter}{\unitstyle{m}}     % SI length
+\newcommand*{\kilogram}{\kilo\gram}     % SI mass
+\newcommand*{\second}{\unitstyle{s}}    % SI time
 
 \newcommand*{\Kelvin}{\unitstyle{K}}
 \newcommand*{\K}{\Kelvin}  %degrees Kelvin
 
 % base units, cgs
-\newcommand*{\cm}{\centi\meter}
-\newcommand*{\gram}{\unitstyle{g}}
+\newcommand*{\cm}{\centi\meter}         % cgs length
+\newcommand*{\gram}{\unitstyle{g}}      % cgs mass
 
 % derived units
-\newcommand*{\grampercc}{\gram\unitskip\power{\cm}{-3}} %mass density
-\newcommand*{\grampersquarecm}{\gram\unitskip\power{\cm}{-2}} %column depth
+\newcommand*{\grampercc}{\gram\unitskip\power{\cm}{-3}} % mass density
+\newcommand*{\grampersquarecm}{\gram\unitskip\power{\cm}{-2}} % column depth
 \newcommand*{\GramPerCc}{\grampercc}
 \newcommand*{\GramPerSc}{\grampersquarecm}
-\newcommand*{\columnunit}{\grampersquarecm}
-\newcommand*{\dyne}{\unitstyle{dyn}}            %dyne
-\newcommand*{\erg}{\unitstyle{erg}}             %ergs
+\newcommand*{\columnunit}{\grampersquarecm}     % mass column density
+\newcommand*{\dyne}{\unitstyle{dyn}}            % dyne
+\newcommand*{\erg}{\unitstyle{erg}}             % ergs
 \newcommand*{\ergs}{\erg}
-\newcommand*{\gauss}{\unitstyle{G}}             %gauss
-\newcommand*{\ergspersecond}{\erg\unitskip\power{\second}{-1}}
-\newcommand*{\ergspergram}{\erg\unitskip\power{\gram}{-1}}
-\newcommand*{\cgsflux}{\erg\unitskip\power{\cm}{-2}\unitskip\power{\second}{-1}}
+\newcommand*{\gauss}{\unitstyle{G}}             % gauss
+\newcommand*{\ergspersecond}{\erg\unitskip\power{\second}{-1}}  % luminosity
+\newcommand*{\ergspergram}{\erg\unitskip\power{\gram}{-1}}  % energy per mass
+\newcommand*{\cgsflux}{\erg\unitskip\power{\cm}{-2}\unitskip\power{\second}{-1}} % flux
 
 % Nuclear and atomic units
 \newcommand*{\amu}{\unitstyle{u}}               %atomic mass unit
@@ -89,22 +89,22 @@
 \newcommand*{\GeVA}{\GeV/A}                     % GeV per nucleon
 
 % misc. units
-\newcommand*{\km}{\kilo\meter}                  %kilometers
-\newcommand*{\Hz}{\unitstyle{Hz}}               %Hertz
-\newcommand*{\ksec}{\kilo\second}               %kilosecond
 \newcommand*{\minute}{\unitstyle{m}}          % minute
 \newcommand*{\hour}{\unitstyle{h}}             % hour
 \newcommand*{\solday}{\unitstyle{d}}            % solar day (\day is already in use)
 \newcommand*{\yr}{\unitstyle{yr}}               % year
+\newcommand*{\km}{\kilo\meter}                  % kilometers
+\newcommand*{\Hz}{\unitstyle{Hz}}               % Hertz
+\newcommand*{\ksec}{\kilo\second}               % kilosecond
 \newcommand*{\mol}{\unitstyle{mol}}             % mole
-\newcommand*{\barn}{\ensuremath{\mathrm{b}}}    %barn
+\newcommand*{\barn}{\ensuremath{\mathrm{b}}}    % barn
 
 % solar and astronomical units
-\newcommand*{\Msun}{\ensuremath{M_\odot}}
-\newcommand*{\Lsun}{\ensuremath{L_\odot}}
-\newcommand*{\Rsun}{\ensuremath{R_\odot}}
-\newcommand*{\Myr}{\Mega\yr}
-\newcommand*{\Gyr}{\Giga\yr}
+\newcommand*{\Msun}{\ensuremath{M_\odot}}       % solar mass
+\newcommand*{\Lsun}{\ensuremath{L_\odot}}       % solar luminosity
+\newcommand*{\Rsun}{\ensuremath{R_\odot}}       % solar radius
+\newcommand*{\Myr}{\Mega\yr}                    % $10^{6}\,\yr$
+\newcommand*{\Gyr}{\Giga\yr}                    % $10^{9}\,\yr$
 \newcommand*{\AU}{\unitstyle{au}}               % astronomical unit
 \newcommand*{\parsec}{\unitstyle{pc}}           % parsec
 \newcommand*{\kpc}{\kilo\parsec}                % kiloparsec
