@@ -25,6 +25,7 @@
 \newboolean{@st_all}
 % Options for derivative styles
 \newboolean{@italic_dif} % default is to use upright d, D for dif, Dif
+\newboolean{@pound_for_Lie} % default is to use calligraphic L for Lie derivative
 
 \setboolean{@st_code}{false}
 \setboolean{@st_derivatives}{false}
@@ -35,6 +36,7 @@
 \setboolean{@st_all}{true}
 
 \setboolean{@italic_dif}{false}
+\setboolean{@pound_for_Lie}{false}
 
 \DeclareOption{code}{
     \setboolean{@st_code}{true}\setboolean{@st_all}{false}
@@ -56,6 +58,7 @@
 }
 \DeclareOption{all}{\setboolean{@st_all}{true}}
 \DeclareOption{italicdif}{\setboolean{@italic_dif}{true}}
+\DeclareOption{poundLie}{\setboolean{@pound_for_Lie}{true}}
 \ProcessOptions
 
 \ifthenelse{\boolean{@st_all}}

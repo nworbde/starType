@@ -25,7 +25,17 @@
 \newcommand*{\ddz}[1]{\frac{\partial #1}{\partial z}}    % partial derivative wrt z 
 \newcommand*{\DDz}[1]{\frac{\dif #1}{\dif z}}            % total derivative wrt z
 
+\newcommand*{\DD}[2]{\frac{\dif #1}{\dif #2}}            % total derivative
 \newcommand*{\dd}[2]{\frac{\partial #1}{\partial #2}}    % partial derivative
 
-\newcommand*{\LD}[1][]{\mathcal{L}_{\bvec{#1}}}                              % Lie derivative
+\ifthenelse{\boolean{@pound_for_Lie}}                    % Lie derivative
+{
+    \typeout{using mathsterling for Lie derivative}
+    \newcommand*{\LD}[1][]{\ensuremath{\mathsterling_{\bvec{#1}}}}
+}
+{
+    \typeout{using calligraphic L for Lie derivative}
+    \newcommand*{\LD}[1][]{\ensuremath{\mathcal{L}_{\bvec{#1}}}}
+}
+
 \newcommand*{\fluidD}[1]{\frac{\Dif #1}{\Dif t}}
