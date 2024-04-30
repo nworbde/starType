@@ -2,9 +2,16 @@
 % Edward F Brown, Michigan State University
 % 
 % typesetting of common derivatives
-
-\newcommand*{\dif}{\ensuremath{\mathrm{d}}}  % differential operator, roman typeface
-\newcommand*{\Dif}{\ensuremath{\mathrm{D}}} % lagrangian differential operator
+\ifthenelse{\boolean{@italic_dif}}
+{
+    \typeout{setting italic derivative symbol}
+    \newcommand*{\dif}{\ensuremath{d}}  % differential operator, italic typeface
+    \newcommand*{\Dif}{\ensuremath{D}}
+}{
+    \typeout{setting roman derivative symbol}
+    \newcommand*{\dif}{\ensuremath{\mathrm{d}}}  % differential operator, roman typeface
+    \newcommand*{\Dif}{\ensuremath{\mathrm{D}}}
+}
 \newcommand*{\jac}[4]{\ensuremath{\frac{\partial(#1,#2)}{\partial(#3,#4)}}} %jacobian
 \newcommand*{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}} %thermodynamic derivative
 
@@ -18,7 +25,6 @@
 \newcommand*{\ddz}[1]{\frac{\partial #1}{\partial z}}    % partial derivative wrt z 
 \newcommand*{\DDz}[1]{\frac{\dif #1}{\dif z}}            % total derivative wrt z
 
-\newcommand*{\DD}[2]{\frac{\dif #1}{\dif #2}}           % total derivative
 \newcommand*{\dd}[2]{\frac{\partial #1}{\partial #2}}    % partial derivative
 
 \newcommand*{\LD}[1][]{\mathcal{L}_{\bvec{#1}}}                              % Lie derivative

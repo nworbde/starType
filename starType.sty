@@ -14,7 +14,8 @@
 
 % Define options for the class.  Each set of macros can be loaded individually;
 % the option all loads everything
-
+%
+% Options for which macros packages to load
 \newboolean{@st_code}
 \newboolean{@st_derivatives}
 \newboolean{@st_nuclides}
@@ -22,6 +23,8 @@
 \newboolean{@st_units}
 \newboolean{@st_vectors}
 \newboolean{@st_all}
+% Options for derivative styles
+\newboolean{@italic_dif} % default is to use upright d, D for dif, Dif
 
 \setboolean{@st_code}{false}
 \setboolean{@st_derivatives}{false}
@@ -30,6 +33,8 @@
 \setboolean{@st_units}{false}
 \setboolean{@st_vectors}{false}
 \setboolean{@st_all}{true}
+
+\setboolean{@italic_dif}{false}
 
 \DeclareOption{code}{
     \setboolean{@st_code}{true}\setboolean{@st_all}{false}
@@ -50,6 +55,7 @@
     \setboolean{@st_vectors}{true}\setboolean{@st_all}{false}
 }
 \DeclareOption{all}{\setboolean{@st_all}{true}}
+\DeclareOption{italicdif}{\setboolean{@italic_dif}{true}}
 \ProcessOptions
 
 \ifthenelse{\boolean{@st_all}}
