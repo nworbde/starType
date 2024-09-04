@@ -17,12 +17,12 @@ subdirectory of `texmf` called `doc/latex/starType`.
 
 To use, load the package in the preamble of the tex document,
 
-    \usepackage[<opts>]{starType}
+    \usepackage[<macro opts><format opts>]{starType}
     
-where `<opts>` is a subset of `code`, `derivatives`, `nuclides`, `symbols`,    `units`, `vectors`, or `all`.  Each of these options loads the particular set of macros.  Calling `starType` with no options is equivalent to
+where `<macro opts>` is a subset of `code`, `derivatives`, `nuclides`, `symbols`, `units`, `vectors`, or `all`.  Each of these options loads the particular set of macros. The `<format ops>` is a subset of `italicdif`, `poundLie`, or `upperConvective`. These control the format of the symbols for the differential symbol, the Lie derivative, and the convective, or material, derivative. See the documentation for details. Calling `starType` with no options is equivalent to
     
     \usepackage[all]{starType}
-    
+
 ### usage with mathspec
 
 If you use XeLaTeX and mathspec, you must declare the math fonts before loading starType's vector macros, which use the `bm` package.  For example, in my notes for stellar astrophysics, my preamble looks like
