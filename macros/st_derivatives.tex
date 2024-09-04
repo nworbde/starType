@@ -16,26 +16,53 @@
 \newcommand*{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}} %thermodynamic derivative
 
 %derivatives
-\newcommand*{\ddt}[1]{\frac{\partial #1}{\partial t}}    % partial time derivative 
-\newcommand*{\DDt}[1]{\frac{\dif #1}{\dif t}}            % total time derivative
-\newcommand*{\ddx}[1]{\frac{\partial #1}{\partial x}}    % partial derivative wrt x 
-\newcommand*{\DDx}[1]{\frac{\dif #1}{\dif x}}            % total derivative wrt x
-\newcommand*{\ddy}[1]{\frac{\partial #1}{\partial y}}    % partial derivative wrt y 
-\newcommand*{\DDy}[1]{\frac{\dif #1}{\dif y}}            % total derivative wrt y
-\newcommand*{\ddz}[1]{\frac{\partial #1}{\partial z}}    % partial derivative wrt z 
-\newcommand*{\DDz}[1]{\frac{\dif #1}{\dif z}}            % total derivative wrt z
-
 \newcommand*{\DD}[2]{\frac{\dif #1}{\dif #2}}            % total derivative
 \newcommand*{\dd}[2]{\frac{\partial #1}{\partial #2}}    % partial derivative
+
+% common shortcuts
+\newcommand*{\ddt}[1]{\dd{#1}{t}}    % partial time derivative 
+\newcommand*{\DDt}[1]{\DD{#1}{t}}    % total time derivative
+\newcommand*{\ddx}[1]{\dd{#1}{x}}    % partial derivative wrt x
+\newcommand*{\DDx}[1]{\DD{#1}{x}}    % total derivative wrt x
+\newcommand*{\ddy}[1]{\dd{#1}{y}}    % partial derivative wrt y
+\newcommand*{\DDy}[1]{\DD{#1}{y}}    % total derivative wrt y
+\newcommand*{\ddz}[1]{\dd{#1}{z}}    % partial derivative wrt z
+\newcommand*{\DDz}[1]{\DD{#1}{z}}    % total derivative wrt z
+\newcommand*{\ddr}[1]{\dd{#1}{r}}    % partial derivative wrt r
+\newcommand*{\DDr}[1]{\DD{#1}{r}}    % total derivative wrt r
+
+\ifthenelse{\boolean{@st_vectors}}
+{
+    \typeout{using boldmath for vectors in fluid derivatives}
+    \newcommand*{\derivVec}[1]{\bvec{#1}}
+    \newcommand*{\derivGrad}{\grad}
+    \newcommand*{\derivDot}{\vdot}
+}{
+    \typeout{option `vectors' is not selected; falling back on vanilla latex vec command}
+    \newcommand*{\derivVec}[1]{\vec{#1}}
+    \newcommand*{\derivGrad}{\nabla}
+    \newcommand*{\derivDot}{\cdot}
+}
 
 \ifthenelse{\boolean{@pound_for_Lie}}                    % Lie derivative
 {
     \typeout{using mathsterling for Lie derivative}
-    \newcommand*{\LD}[1][]{\ensuremath{\mathsterling_{\bvec{#1}}}}
+    \newcommand*{\LD}[1][]{\ensuremath{\mathsterling_{\derivVec{#1}}}}
 }
 {
     \typeout{using calligraphic L for Lie derivative}
-    \newcommand*{\LD}[1][]{\ensuremath{\mathcal{L}_{\bvec{#1}}}}
+    \newcommand*{\LD}[1][]{\ensuremath{\mathcal{L}_{\derivVec{#1}}}}
 }
 
+% convective derivative and fluid derivative
+\newcommand*{\convectiveDerivative}[2][v]{\ddt{#2}+\derivVec{#1}\derivDot\derivGrad #2}
+\ifthenelse{\boolean{@uppercase_convective}}
+{
+    \typeout{setting uppercase D for convective derivative}
+    \newcommand*{\convectiveD}[1]{\frac{\Dif #1}{\Dif t}}
+}{
+    \typeout{setting lowercase d for convective derivative}
+    \newcommand*{\convectiveD}[1]{\DDt{#1}}
+}
+\newcommand*{\fluidDerivative}[2][v]{\ddt{#2} + \LD[#1]{#2}}
 \newcommand*{\fluidD}[1]{\frac{\Dif #1}{\Dif t}}

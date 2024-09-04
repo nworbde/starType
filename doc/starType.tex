@@ -27,7 +27,7 @@
 
     \rmfamily
     
-A common chore is the typesetting of units and various symbols. To help with this, I wrote a set of macros, \href{https://github.com/nworbde/starType}{\starType}.  You are welcome to use them or modify them to suit your needs.  
+A common chore is the typesetting of units and various symbols. To help with this, I wrote a set of macros, \href{https://github.com/nworbde/starType}{\starType}.  You are welcome to use them or modify them to suit your needs.
 
 \section{Usage}
 
@@ -49,8 +49,10 @@ The options comprise two groups: which subset of macros are loaded; and how some
 
 \subsection{Format options}
 \begin{description}
-\item[\texttt{italicdif}] Sets differential operator |\dif| in italic font: $d$. Default is that it be in upright (Roman) font: $\dif$.
+\item[\texttt{italicdif}] Sets differential operators |\dif| and |\Dif| in italic font: $d$, $D$. Default is that it be in upright (Roman) font: $\dif$, $\Dif$.
 \item[\texttt{poundLie}] Uses the pound symbol for the Lie derivative |\LD[u]| : $\mathsterling_{\bvec{u}}$. Default is to use a calligraphic L, $\LD[u]$.
+\item[\texttt{upperConvective}] Uses an uppercase ``D'' for the convective derivative, |\convectiveD[v]{\phi}| produces $\textstyle\frac{\Dif\phi}{\Dif t}\equiv\convectiveDerivative[v]{\phi}$.
+Default is to use a lowercase ``d'': $\textstyle\convectiveD{\phi}\equiv\convectiveDerivative[v]{\phi}$.
 \end{description}
 
 \section{Code Names}\label{s.code}
@@ -103,10 +105,12 @@ command & produces\\
         |\DD{f}{\xi}| & $\textstyle\DD{f}{\xi}$\\
         |\LD| & $\LD$\\
         |\LD[v]| & $\LD[v]$\\
+        |\convectiveD{\phi}| & $\convectiveD{\phi}\equiv \textstyle\convectiveDerivative[v]{\phi}$\\
         |\fluidD{\bvec{W}}| & $\textstyle\fluidD{\bvec{W}} \equiv \textstyle\ddt{\bvec{W}} + \LD[v]\bvec{W}$\\
         \hline
     \end{tabular}
 \end{center}
+Note that if the option |vectors| is not selected, the macros |\LD|, |\convectiveD|, and |\fluidD| will revert to using the vanilla \LaTeX\ symbols $\vec{v}$, $\nabla$, and $\cdot$ in place of $\bvec{v}$, $\grad$, and $\vdot$.
 
 \section{Vectors}\label{s.vectors}
 
