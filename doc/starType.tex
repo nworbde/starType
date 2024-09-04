@@ -29,7 +29,31 @@
     
 A common chore is the typesetting of units and various symbols. To help with this, I wrote a set of macros, \href{https://github.com/nworbde/starType}{\starType}.  You are welcome to use them or modify them to suit your needs.  
 
-\section{Code Names}
+\section{Usage}
+
+In the preamble:
+\begin{Verbatim}
+\usepackage[<options>]{starType}
+\end{Verbatim}
+The options comprise two groups: which subset of macros are loaded; and how some symbols are formatted.
+\subsection{Load options}
+\begin{description}
+\item[\texttt{code}]  load macros in \S~\ref{s.code}
+\item[\texttt{derivatives}] load macros in \S~\ref{s.derivatives}
+\item[\texttt{vectors}] load macros in \S~\ref{s.vectors}
+\item[\texttt{nuclides}] load macros in \S~\ref{s.nuclides}
+\item[\texttt{units}] load macros in \S~\ref{s.units}
+\item[\texttt{symbols}] load macros in \S~\ref{s.symbols}
+\item[\texttt{all} (default)] Load |code|, |derivatives|, |vectors|, |nuclides|, |units|, |symbols|
+\end{description}
+
+\subsection{Format options}
+\begin{description}
+\item[\texttt{italicdif}] Sets differential operator |\dif| in italic font: $d$. Default is that it be in upright (Roman) font: $\dif$.
+\item[\texttt{poundLie}] Uses the pound symbol for the Lie derivative |\LD[u]| : $\mathsterling_{\bvec{u}}$. Default is to use a calligraphic L, $\LD[u]$.
+\end{description}
+
+\section{Code Names}\label{s.code}
 
 \begin{center}
 \begin{tabular}{ll}
@@ -55,7 +79,7 @@ command & produces\\
 \end{tabular}
 \end{center}
 
-\section{Derivatives}
+\section{Derivatives}\label{s.derivatives}
 
 \begin{center}
     \renewcommand{\arraystretch}{1.5}
@@ -84,7 +108,7 @@ command & produces\\
     \end{tabular}
 \end{center}
 
-\section{Vectors}
+\section{Vectors}\label{s.vectors}
 
 \begin{center}
     \begin{tabular}{ll}
@@ -103,18 +127,18 @@ command & produces\\
     \end{tabular}
 \end{center}
 
-\section{Nuclides}\label{s.nuclides.tex}
+\section{Nuclides}\label{s.nuclides}
 
 The \code{nuclides.tex} macros contain a list of all named elements.  Typeing `|\<element>|' produces the symbol of either the most common, or the longest-lived, isotope of that element.  To get a specific isotope, add the atomic number of the isotope in |[]|.  For example, |\carbon| produces \carbon, and |\carbon[13]| produces \carbon[13]; |\cadmium| produces \cadmium, whereas |\cadmium[116]| produces \cadmium[116]; and so on.
 The symbols `|\neutron|' (alias `|\nt|') and `|\proton|' (alias `|\pt|') are also defined and produce `\neutron' and `\proton', respectively.
 
-\section{Units}
+\section{Units}\label{s.units}
 
-To get scientific notation, type `|$3\ee{5}$|' to get $3\ee{5}$; alternatively, use `|\sci{3}{5}|' to get $\sci{3}{5}$.  To typeset a value with its unit, use the |\val| macro: for example, `|$\val{3}{\meter/\second}$|' produces $\val{3}{\meter/\second}$.  More complicated expressions are possible: for example,
+To get scientific notation, use `|$3\ee{5}$|' or `|\sci{3}{5}|' to get $\sci{3}{5}$.  To typeset a value with its unit, use the |\val| macro: for example, `|$\val{3}{\meter/\second}$|' produces $\val{3}{\meter/\second}$.  More complicated expressions are possible: for example,
 \begin{center}
 |$\val{\sci{2.0}{33}}{\ergspersecond}$| produces $\val{\sci{2.0}{33}}{\ergspersecond}$.
 \end{center}
-  For ranges of numbers, |\rng{2}{3}| produces \rng{2}{3}; |\rng[--]{2}{3}| produces \rng[--]{2}{3}. To put a range with a value, |\valrng{2}{3}{\meter/\second}| produces \valrng{2}{3}{\meter/\second} and |\valrng[--]{2}{3}{\meter/\second}| produces \valrng[--]{2}{3}{\meter/\second}.  Macros for the unit symbols are listed in the following table.
+For ranges of numbers, |\rng{2}{3}| produces \rng{2}{3}; |\rng[--]{2}{3}| produces \rng[--]{2}{3}. To put a range with a value, |\valrng{2}{3}{\meter/\second}| produces \valrng{2}{3}{\meter/\second} and |\valrng[--]{2}{3}{\meter/\second}| produces \valrng[--]{2}{3}{\meter/\second}.  Macros for the unit symbols are listed in the following table.
 
 Note that more sophisticated packages, such as `SIunits' are available as part of a standard \LaTeX\ distribution.
 
@@ -206,7 +230,8 @@ A complete listing of the units are as follows.
     \end{longtable}
 \end{center}
 
-\section{Symbols}
+\clearpage
+\section{Symbols}\label{s.symbols}
 
 \begin{center}
 \begin{longtable}{lll}
