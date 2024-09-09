@@ -51,8 +51,8 @@ The options comprise two groups: which subset of macros are loaded; and how some
 \begin{description}
 \item[\texttt{italicdif}] Sets differential operators |\dif| and |\Dif| in italic font: $d$, $D$. Default is that it be in upright (Roman) font: $\dif$, $\Dif$.
 \item[\texttt{poundLie}] Uses the pound symbol for the Lie derivative |\LD[u]| : $\mathsterling_{\bvec{u}}$. Default is to use a calligraphic L, $\LD[u]$.
-\item[\texttt{upperConvective}] Uses an uppercase ``D'' for the convective derivative, |\convectiveD[v]{\phi}| produces $\textstyle\frac{\Dif\phi}{\Dif t}\equiv\convectiveDerivative[v]{\phi}$.
-Default is to use a lowercase ``d'': $\textstyle\convectiveD{\phi}\equiv\convectiveDerivative[v]{\phi}$.
+\item[\texttt{upperConvective}] Uses an uppercase ``D'' for the convective derivative, |\convectiveD[v]{\phi}| produces $\frac{\Dif\phi}{\Dif t}\equiv\convectiveDerivative[v]{\phi}$.
+Default is to use a lowercase ``d'': $\convectiveD{\phi}\equiv\convectiveDerivative[v]{\phi}$.
 \end{description}
 
 \section{Code Names}\label{s.code}
@@ -91,26 +91,29 @@ command & produces\\
         \hline\hline
         |\dif| & \dif \\
         |\Dif| & \Dif \\
-        |\jac{a}{b}{c}{d}| & $\textstyle\jac{a}{b}{c}{d}$\\
-        |\tderiv{a}{b}{c}| & $\textstyle\tderiv{a}{b}{c}$\\
-        |\ddt{f}| & $\textstyle\ddt{f}$\\
-        |\DDt{f}| & $\textstyle\DDt{f}$\\
-        |\ddx{f}| & $\textstyle\ddx{f}$\\
-        |\DDx{f}| & $\textstyle\DDx{f}$\\
-        |\ddy{f}| & $\textstyle\ddy{f}$\\
-        |\DDy{f}| & $\textstyle\DDy{f}$\\
-        |\ddz{f}|  & $\textstyle\ddz{f}$\\
-        |\DDz{f}| & $\textstyle\DDz{f}$\\
-        |\dd{f}{\xi}| & $\textstyle\dd{f}{\xi}$\\
-        |\DD{f}{\xi}| & $\textstyle\DD{f}{\xi}$\\
+        |\jac{a}{b}{c}{d}| & $\jac{a}{b}{c}{d}$\\
+        |\tderiv{a}{b}{c}| & $\tderiv{a}{b}{c}$\\
+        |\ddt{f}| & $\ddt{f}$\\
+        |\DDt{f}| & $\DDt{f}$\\
+        |\ddx{f}| & $\ddx{f}$\\
+        |\DDx{f}| & $\DDx{f}$\\
+        |\ddy{f}| & $\ddy{f}$\\
+        |\DDy{f}| & $\DDy{f}$\\
+        |\ddz{f}|  & $\ddz{f}$\\
+        |\DDz{f}| & $\DDz{f}$\\
+        |\dd{f}{\xi}| & $\dd{f}{\xi}$\\
+        |\DD{f}{\xi}| & $\DD{f}{\xi}$\\
         |\LD| & $\LD$\\
         |\LD[v]| & $\LD[v]$\\
-        |\convectiveD{\phi}| & $\convectiveD{\phi}\equiv \textstyle\convectiveDerivative[v]{\phi}$\\
-        |\fluidD{\bvec{W}}| & $\textstyle\fluidD{\bvec{W}} \equiv \textstyle\ddt{\bvec{W}} + \LD[v]\bvec{W}$\\
+        |\convectiveD{\phi}| & $\convectiveD{\phi}\equiv \convectiveDerivative[v]{\phi}$\\
+        |\fluidD{\bvec{W}}| & $\fluidD{\bvec{W}} \equiv \ddt{\bvec{W}} + \LD[v]\bvec{W}$\\
         \hline
     \end{tabular}
 \end{center}
 Note that if the option |vectors| is not selected, the macros |\LD|, |\convectiveD|, and |\fluidD| will revert to using the vanilla \LaTeX\ symbols $\vec{v}$, $\nabla$, and $\cdot$ in place of $\bvec{v}$, $\grad$, and $\vdot$.
+
+The symbols automatically set the fraction style according to context: compare $\convectiveD{\bvec{u}}\equiv\convectiveDerivative{\bvec{u}}$ and
+\[ \convectiveD{\bvec{u}}\equiv\convectiveDerivative{\bvec{u}}. \]
 
 \section{Vectors}\label{s.vectors}
 

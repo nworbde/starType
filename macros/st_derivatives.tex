@@ -12,12 +12,11 @@
     \newcommand*{\dif}{\ensuremath{\mathrm{d}}}  % differential operator, roman typeface
     \newcommand*{\Dif}{\ensuremath{\mathrm{D}}}
 }
-\newcommand*{\jac}[4]{\ensuremath{\frac{\partial(#1,#2)}{\partial(#3,#4)}}} %jacobian
-\newcommand*{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}} %thermodynamic derivative
-
 %derivatives
-\newcommand*{\DD}[2]{\frac{\dif #1}{\dif #2}}            % total derivative
-\newcommand*{\dd}[2]{\frac{\partial #1}{\partial #2}}    % partial derivative
+\newcommand*{\DD}[2]{\mathchoice{\frac{\dif #1}{\dif #2}}{\dif #1/\dif #2}{\dif #1/\dif #2}{\dif #1/\dif #2}} % total derivative
+\newcommand*{\dd}[2]{\mathchoice{\frac{\partial #1}{\partial #2}}{\partial#1/\partial#2}{\partial#1/\partial#2}{\partial#1/\partial#2}} % partial derivative
+\newcommand*{\jac}[4]{\mathchoice{\frac{\partial(#1,#2)}{\partial(#3,#4)}}{\partial(#1,#2)/\partial(#3,#4)}{\partial(#1,#2)/\partial(#3,#4)}{\partial(#1,#2)/\partial(#3,#4)}} %jacobian
+\newcommand*{\tderiv}[3]{\mathchoice{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}{\left(\partial #1/\partial #2\right)_{#3}}{\left(\partial #1/\partial #2\right)_{#3}}{\square}} %thermodynamic derivative
 
 % common shortcuts
 \newcommand*{\ddt}[1]{\dd{#1}{t}}    % partial time derivative 
@@ -59,10 +58,10 @@
 \ifthenelse{\boolean{@uppercase_convective}}
 {
     \typeout{setting uppercase D for convective derivative}
-    \newcommand*{\convectiveD}[1]{\frac{\Dif #1}{\Dif t}}
+    \newcommand*{\convectiveD}[1]{\mathchoice{\frac{\Dif #1}{\Dif t}}{\Dif#1/\Dif#2}{\Dif#1/\Dif#2}{\Dif#1/\Dif#2}}
 }{
     \typeout{setting lowercase d for convective derivative}
     \newcommand*{\convectiveD}[1]{\DDt{#1}}
 }
 \newcommand*{\fluidDerivative}[2][v]{\ddt{#2} + \LD[#1]{#2}}
-\newcommand*{\fluidD}[1]{\frac{\Dif #1}{\Dif t}}
+\newcommand*{\fluidD}[1]{\mathchoice{\frac{\Dif #1}{\Dif t}}{\Dif#1/\Dif t}{\Dif#1/\Dif t}{\Dif#1/\Dif t}}
