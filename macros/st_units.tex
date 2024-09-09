@@ -9,10 +9,12 @@
 \newcommand*{\sci}[2]{\ensuremath{#1\ee{#2}}}			% \sci{3.0}{4} => 3.0\times 10^{4}
 \newcommand{\power}[2]{\ensuremath{{#1}^{#2}}}		    % \power{2}{3} => 2^{3}
 
-% spacing between value and unit; value is a thin space
-\newcommand*{\unitskip}{\,}                             % change this to \; if you want a thicker space
+% per APS style, there is a full space between value and unit, and a thin space between unit components
+\newcommand*{\valueskip}{\;}
+\newcommand*{\vsk}{\valueskip}
+\newcommand*{\unitskip}{\,}
 \newcommand*{\usk}{\unitskip}
-\newcommand*{\val}[2]{\ensuremath{#1\unitskip#2}}
+\newcommand*{\val}[2]{\ensuremath{#1\valueskip#2}}
 
 % sometimes you want to input a range of numbers
 % example: \rng{2}{3} puts 2 to 3; \rng[--]{2}{3} puts 2--3, where the two dashes are correctly typeset 
