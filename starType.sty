@@ -117,4 +117,13 @@
 }{}
 
 % miscellaneous command for typseting X-ray sources names
-\newcommand*{\source}[3]{#1~$\mathrm{{#2}{#3}}$}
+\makeatletter
+\newcommand*{\source}[3]{%
+        \ifx\f@series\st@bold
+                \expandafter#1~$\mathbf{{#2}{#3}}$\ignorespaces
+        \else
+                \expandafter#1~$\mathrm{{#2}{#3}}$\ignorespaces
+        \fi
+}
+\newcommand*{\st@bold}{b}
+\makeatother
