@@ -22,20 +22,23 @@
 \newboolean{@st_symbols}
 \newboolean{@st_units}
 \newboolean{@st_vectors}
+\newboolean{@st_instruments}
 \newboolean{@st_all}
+
 % Options for derivative styles
 \newboolean{@italic_dif} % default is to use upright d, D for dif, Dif
 \newboolean{@pound_for_Lie} % default is to use calligraphic L for Lie derivative
 \newboolean{@uppercase_convective} % default is to use lowercase d for convective derivative
 
+% set defaults
 \setboolean{@st_code}{false}
 \setboolean{@st_derivatives}{false}
 \setboolean{@st_nuclides}{false}
 \setboolean{@st_symbols}{false}
 \setboolean{@st_units}{false}
 \setboolean{@st_vectors}{false}
+\setboolean{@st_instruments}{false}
 \setboolean{@st_all}{true}
-
 \setboolean{@italic_dif}{false}
 \setboolean{@pound_for_Lie}{false}
 \setboolean{@uppercase_convective}{false}
@@ -58,6 +61,9 @@
 \DeclareOption{vectors}{
     \setboolean{@st_vectors}{true}\setboolean{@st_all}{false}
 }
+\DeclareOption{instruments}{
+    \setboolean{@st_instruments}{true}\setboolean{@st_all}{false}
+}
 \DeclareOption{all}{\setboolean{@st_all}{true}}
 \DeclareOption{italicdif}{\setboolean{@italic_dif}{true}}
 \DeclareOption{poundLie}{\setboolean{@pound_for_Lie}{true}}
@@ -72,6 +78,7 @@
     \setboolean{@st_symbols}{true}
     \setboolean{@st_units}{true}
     \setboolean{@st_vectors}{true}
+    \setboolean{@st_instruments}{true}
 }{}
 \ifthenelse{\boolean{@st_code}}
 {
@@ -102,4 +109,9 @@
 {
     \typeout{loading starType macros 'vectors'}
     \input{st_vectors}
+}{}
+\ifthenelse{\boolean{@st_vectors}}
+{
+    \typeout{loading starType macros 'instruments'}
+    \input{st_instruments}
 }{}
