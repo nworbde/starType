@@ -9,9 +9,10 @@
 \RequirePackage{bm}
 \newcommand{\bvec}[1]{\ensuremath{\bm{#1}}} % boldface vector style
 \newcommand{\grad}{\bvec{\nabla}} % gradient
-\newcommand{\divr}{\nabla \cdot} % divergence
+\newcommand{\divr}{\grad\vdot} % divergence
 \newcommand{\curl}{\bvec{\nabla \times}} % curl
 \newcommand{\lap}{\ensuremath{\nabla^2}} % Laplacian
 \newcommand{\btens}[1]{\ensuremath{\bm{\mathsf{#1}}}}   % tensor
 \newcommand{\vcross}{\bvec{\times}} % cross product
 \newcommand{\vdot}{\bvec{\cdot}} % dot product
+\newcommand{\vddot}{\mathbin{\raisebox{0.3ex}{\btens{:}}}}
